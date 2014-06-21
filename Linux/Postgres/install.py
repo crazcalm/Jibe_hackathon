@@ -11,7 +11,7 @@ def install():
 
 def set_db_username():
     """
-    Uses your login in name from your computer to create a Postgres username
+    Uses your login in name from your computer to create a Postgres account
     """
     username = os.getlogin()
     command = "sudo -u postgres createuser --superuser %s" % username
