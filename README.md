@@ -1,4 +1,8 @@
 Jibe_hackathon
 ==============
 
-Database Installer Python 3.4
+Overview
+--------
+
+      I want to create a package that assists in the installing of and setting
+    up of databases.
