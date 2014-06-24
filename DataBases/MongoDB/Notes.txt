@@ -1,0 +1,83 @@
+Packages:
+---------
+
+  1. mongodb-org
+  2. mongodb-org-server
+  3. mongodb-org-mongos
+  4. mongodb-org-shell
+  5. mongodb-org-tools
+
+
+Control Scripts:
+----------------
+
+  The mongodb-org package includes various control scripts, including the init
+script /etc/inti.d/mongodb.
+
+  The package configures MongoDB using the /etc/mongodb.conf file in
+conjuction with the control scripts.
+
+
+Install MongoDB:
+-----------------
+
+  1. Import the public key used by the package management system:
+
+    - The Ubuntu package management tools ensure package consistency and
+      authenciticity by requiring that distributors sign packages with
+      GPG keys. Issue the following command to import the MongoDB public
+      GPG Key:
+
+    -  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+
+  2. Create a list file for MongoDB:
+
+    - Create the /etc/apt.sources.list.d/mongodb.list list file using the
+      followingcommand:
+
+    - echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+
+  3. Reload local package database:
+
+    - Issue the following command to reload the local package database.
+
+    - sudo apt-get update
+
+  4. Install the MongoDB packages:
+
+    - Issue the following command for the lastest stable version:
+
+    - sudo apt-get install mongodb-org
+
+
+Run MongoDB:
+------------
+
+  The MongoDB instance stores its data files in /var/lib/mongodb and its log
+files in /var/log/mongodb, and runs using the mongodb user account.
+
+  If you change the user that runs the MongoDB process, you must modify
+the access control rights to the /var/lib/mongodb and /var/log/mongodb directories.
+
+
+  1. Start MongoDB:
+
+    - Issue the following command to start mongodb:
+
+    - sudo /etc/init.d/mongod start
+
+  2. Verify that MongoDB has started successfully:
+
+    - Verify that the mongod process has started successfully by checking
+      the contents of the log file at /var/log/mongodb/mongod.log.
+
+  3. Stop MongoDB:
+
+    - As needed, you can stop the mongod process by issuing the following
+      command:
+
+    - sudo /etc/init.d/mongod stop
+
+  4. Restart MongoDB:
+
+    - sudo /etc/init.d/mongod restart
