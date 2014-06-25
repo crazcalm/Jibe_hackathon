@@ -1,13 +1,6 @@
+from installer import install, command_formater
 from subprocess import call
 import os
-
-def install():
-    """
-    installs postgresql and postgressql-contrib
-    """
-    command = 'sudo apt-get install postgresql postgresql-contrib'
-    command_list = command.split(" ")
-    call(command.split(" "))
 
 def set_db_username():
     """
@@ -15,9 +8,16 @@ def set_db_username():
     """
     username = os.getlogin()
     command = "sudo -u postgres createuser --superuser %s" % username
-    command_list = command.split(" ")
-    call(command_list)
+    call(command_formater(command))
+
+def setup():
+    """
+    installs postgresql and postgressql-contrib
+    """
+    packages = 'postgresql postgresql-contrib'
+    install(packages)
+    set_db_username()
+
 
 if __name__ == "__main__":
-    install()
-    set_db_username()
+    setup()
