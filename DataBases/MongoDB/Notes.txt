@@ -81,3 +81,9 @@ the access control rights to the /var/lib/mongodb and /var/log/mongodb directori
   4. Restart MongoDB:
 
     - sudo /etc/init.d/mongod restart
+
+
+Python Notes:
+-------------
+
+pip install pymongo
