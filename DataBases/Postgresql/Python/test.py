@@ -17,8 +17,6 @@ def main():
     for func, error in function_list:
         test_function(func, error)
 
-    print "Past all tests!"
-
 def command_formater(command):
     """
     Formats the commands for the subprocess.call function
@@ -79,10 +77,6 @@ def basic_functionality():
     # Close communication with the database
     cur.close()
     conn.close()
-
-
-def hello(name="Marcus"):
-    print "Hello %s" % name
 
 if __name__ == "__main__":
     main()
